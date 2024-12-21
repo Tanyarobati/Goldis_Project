@@ -22,7 +22,7 @@ const linksList = [
   {
     title: 'مدیریت محصولات',
     icon: 'manage_accounts',
-    link: '/users'
+    link: '/manage'
   },
   {
     title: ' درباره ما',
