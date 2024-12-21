@@ -1,8 +1,6 @@
 <template>
   <q-page>
     <div class="q-pa-md q-pb-xl">
-
-
       <q-carousel
         animated
         v-model="slide"
@@ -11,12 +9,13 @@
         infinite
         class="custom-carousel "
       >
-        <q-carousel-slide
+      <q-carousel-slide
           v-for="(image, index) in carouselImages"
           :key="index"
           :name="index"
-          :img-src="image"
-        />
+        >
+          <img :src="image" alt="carousel image" class="carousel-image" />
+        </q-carousel-slide>
       </q-carousel>
 
 
@@ -64,7 +63,14 @@ fetchProducts()
 <style>
 .custom-carousel {
   width: 100%;
-  height: 800px;
-  border-radius: 10px;
+  height: 400px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit:fill; /* Ensures the image fits inside the container without cropping */
+  border-radius: 15px;
+
 }
 </style>

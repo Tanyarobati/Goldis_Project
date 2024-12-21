@@ -6,6 +6,7 @@
         color="teal-10"
         label="سبد خرید من"
         icon="shopping_cart"
+        style="margin-right: 10px;"
       />
 
       <q-btn-dropdown class="flat" color="teal-10" label="ورود | خروج">
@@ -14,13 +15,16 @@
             <div class="text-h6 q-mb-md" align="center">{{ user.name }}</div>
             <q-btn
             glossy
-            color="orange-4"
+            outline
+            color="teal-10"
             v-model="login"
             label="ورود به حساب "
-            icon="login" />
+            icon="login"
+            style="margin-bottom: 8px;" />
             <q-btn
-            glossy
-            color="orange-4"
+              glossy
+              color="teal-10"
+              outline
               v-model="logout"
               label="خروج از حساب "
               icon="logout"
@@ -38,7 +42,7 @@
         </div>
       </q-btn-dropdown>
         <q-space></q-space>
-        <a class="navbar-brand" >
+        <a class="navbar-brand" href="/">
                     <img class="text-logo" src="src/assets/goldis-logo-horizontal.png" width="140">
                 </a>
         <q-btn

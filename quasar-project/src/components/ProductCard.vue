@@ -69,7 +69,7 @@ function deleteProduct() {
 .card-image {
   border-top-right-radius: 10px;
   border-top-left-radius: 12px;
-  width: 240px;
+  width: 250px;
   height: 180px;
   margin-bottom: 5px;
   margin-top: -20px;

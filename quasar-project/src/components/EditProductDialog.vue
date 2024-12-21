@@ -4,17 +4,17 @@
   >
     <q-card style="max-width: 400px">
       <q-card-section>
-        <div class="text-h6" align="center">ویرایش محصول</div>
+        <div class="text-h6" align="center">{{ isNewProduct ? 'افزودن محصول' : 'ویرایش محصول' }}</div>
       </q-card-section>
 
       <q-card-section >
-        <q-form  @submit.prevent="submit">
+        <q-form @submit.prevent="submit">
           <q-input
             v-model="formData.name"
             label="نام محصول"
             outlined
             class="q-mb-md"
-            />
+          />
           <q-input
             v-model="formData.price"
             label="قیمت محصول"
@@ -46,20 +46,17 @@
             :label="formData.sold"
           />
           <div>
-
             <q-btn
-            type="submit"
-            label="ذخیره"
-            color="teal-10"
+              type="submit"
+              label="ذخیره"
+              color="teal-10"
             />
-
             <q-btn
-            flat
-            label="لغو"
-            color="negative"
-            @click="close"
+              flat
+              label="لغو"
+              color="negative"
+              @click="close"
             />
-
           </div>
         </q-form>
       </q-card-section>
@@ -78,6 +75,10 @@ const props = defineProps({
   visible: {
     type: Boolean,
     required: true
+  },
+  isNewProduct: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -117,15 +118,3 @@ function submit() {
   close()
 }
 </script>
-
-<style scoped>
-.q-dialog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.q-card {
-  padding: 1.5rem;
-}
-</style>
