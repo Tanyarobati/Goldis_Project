@@ -1,11 +1,10 @@
 <template>
-  <q-card class="my-card">
+  <q-card class="product-card" style="background-color: #f0f0f0;">
 
         <q-img
           :src="product.image"
           ratio="4:3"
           alt="Product Image"
-          class="q-mb-md"
         />
         <img
         :src="product.image"
@@ -21,7 +20,7 @@
       <div>
         <span>قیمت:</span> ${{ product.price }}
       </div>
-      <q-rating :value="product.rating" size="18px" color="yellow" />
+      <q-rating :value="product.rate" size="18px" color="yellow" />
     </q-card-section>
 
     <q-card-actions align="around">
@@ -62,17 +61,18 @@ function deleteProduct() {
 </script>
 
 <style scoped>
-.my-card {
-  max-width: 250px;
-  min-width: 200px;
+.product-card {
+  width:250px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 .card-image {
   border-top-right-radius: 10px;
   border-top-left-radius: 12px;
-
+  width: 240px;
+  height: 180px;
   margin-bottom: 5px;
+  margin-top: -20px;
 
 }
 </style>
