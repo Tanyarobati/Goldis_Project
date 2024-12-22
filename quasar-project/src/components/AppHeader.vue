@@ -16,11 +16,13 @@
             <q-btn
             glossy
             outline
-            color="teal-10"
-            v-model="login"
-            label="ورود به حساب "
             icon="login"
-            style="margin-bottom: 8px;" />
+            v-model="login"
+            color="teal-10"
+            label="ورود به حساب "
+            style="margin-bottom: 8px;"
+            @click="routerLogin"
+             />
             <q-btn
               glossy
               color="teal-10"
@@ -41,10 +43,10 @@
           </div>
         </div>
       </q-btn-dropdown>
-        <q-space></q-space>
-        <a class="navbar-brand" href="/">
-                    <img class="text-logo" src="src/assets/goldis-logo-horizontal.png" width="140">
-                </a>
+        <q-space/>
+         <a class="navbar-brand" href="/">
+          <img class="text-logo" src="src/assets/goldis-logo-horizontal.png" width="140">
+         </a>
         <q-btn
          icon="list"
          flat color="teal-10"
@@ -56,8 +58,11 @@
 </template>
 
 <script setup>
-import { api } from 'boot/axios'
 import { ref } from 'vue'
+import { api } from 'boot/axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const user = ref('')
 defineEmits(['toggleMenu'])
@@ -68,6 +73,9 @@ async function fetchUser () {
 }
 async function deleteProfile () {
   await api.delete('/user/{{user.id}}')
+}
+function routerLogin () {
+  router.push('/login')
 }
 fetchUser()
 </script>

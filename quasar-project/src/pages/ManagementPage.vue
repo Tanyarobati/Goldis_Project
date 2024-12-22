@@ -80,7 +80,10 @@ async function submitProduct(product) {
 async function addNewProduct(newProduct) {
   try {
     const response = await api.post('/products', {
-      ...newProduct,
+      name:newProduct.name || 'default',
+      price: newProduct.price || '0.0',
+      description: newProduct.description || 'no description',
+      sold: newProduct.sold || true ,
       image: newProduct.image || 'https://i.postimg.cc/x1GYVD1p/goldis-logo-horizontal.png',
       rate: newProduct.rate || 5,
     })
@@ -103,7 +106,7 @@ async function updateProduct(updatedProduct) {
 
     await fetchProducts()
     console.log('Product updated successfully!', response.data)
-    editDialog.value = false  
+    editDialog.value = false
   } catch (error) {
     console.error('Error updating product:', error)
   }

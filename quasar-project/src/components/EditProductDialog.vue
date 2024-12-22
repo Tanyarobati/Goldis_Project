@@ -6,21 +6,28 @@
       <q-card-section>
         <div class="text-h6" align="center">{{ isNewProduct ? 'افزودن محصول' : 'ویرایش محصول' }}</div>
       </q-card-section>
-
       <q-card-section >
-        <q-form @submit.prevent="submit">
+        
+        <q-form @submit.prevent="submit" greedy>
+
           <q-input
             v-model="formData.name"
             label="نام محصول"
             outlined
             class="q-mb-md"
+            lazy-rules
+            :lazy="[requiredRule]"
           />
+
           <q-input
             v-model="formData.price"
             label="قیمت محصول"
             outlined
             class="q-mb-md"
+            lazy-rules
+            :lazy = "[numberAndDotOnlyRule]"
           />
+
           <q-input
             v-model="formData.description"
             label="توضیحات محصول"
@@ -28,6 +35,7 @@
             outlined
             class="q-mb-md"
           />
+
           <q-input
             v-model="formData.image"
             label="تصویر محصول"
@@ -45,6 +53,7 @@
             class="q-mb-md"
             :label="formData.sold"
           />
+
           <div>
             <q-btn
               type="submit"
@@ -65,6 +74,8 @@
 </template>
 
 <script setup>
+
+import { requiredRule  , numberAndDotOnlyRule} from 'src/utils/rules';
 import { ref, watch } from 'vue'
 
 const props = defineProps({
